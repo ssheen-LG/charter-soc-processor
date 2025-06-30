@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run Gemini Extractor",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${workspaceFolder}/gemini_extractor.py",
+        "console": "integratedTerminal",
+        "args": [
+          "--bucket_name", "charter-soc1-documents",
+          "--gcs_prefix", "raw",
+          "--output_csv", "output.csv",
+          "--output_jsonl", "output_gemini.jsonl",
+          "--model_name", "gemini-2.5-pro",
+          "--max_retries", "5",
+          "--retry_delay", "3.0"
+        ]
+      },
+      {
+        "name": "Run DocAI Batch Processor",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${workspaceFolder}/doc_extractor.py",  
+        "args": [
+          "--project_id", "prj-d-blumdata-sandbox-45fa",
+          "--location", "eu",
+          "--processor_id", "ca26252c6a532e71",
+          "--bucket_name", "charter-soc1-documents",
+          "--output_jsonl", "docai_output.jsonl",
+          "--doc_input_prefix", "raw",
+          "--doc_output_prefix", "docai_processed",
+          "--batch_limit", "5"
+        ],
+        "console": "integratedTerminal"
+      }
+    ]
+  }
+  

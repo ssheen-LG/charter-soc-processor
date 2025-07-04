@@ -8,10 +8,11 @@
         "program": "${workspaceFolder}/gemini_extractor.py",
         "console": "integratedTerminal",
         "args": [
-          "--bucket_name", "charter-soc1-documents",
+          //"--bucket_name", "charter-soc1-documents",
+          "--pdf_dir","/Users/ssheen/Projects/soc-processor/soc_reports",
           "--gcs_prefix", "raw",
           "--output_csv", "output.csv",
-          "--output_jsonl", "output_gemini.jsonl",
+          "--output_json", "output_gemini.json",
           "--model_name", "gemini-2.5-pro",
           "--max_retries", "5",
           "--retry_delay", "3.0"
@@ -25,7 +26,7 @@
         "args": [
           "--project_id", "prj-d-blumdata-sandbox-45fa",
           "--location", "eu",
-          "--processor_id", "ca26252c6a532e71",
+          "--processor_id", "31f4fd567cff8692",
           "--bucket_name", "charter-soc1-documents",
           "--output_jsonl", "docai_output.jsonl",
           "--doc_input_prefix", "raw",

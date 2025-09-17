@@ -2,11 +2,11 @@ import React, { createContext, useContext, useState } from "react";
 
 const AccordionItemContext = createContext<{ open: boolean; toggle: () => void } | undefined>(undefined);
 
-export function Accordion({ type = "multiple", className = "", children }: any) {
+export function Accordion({ className = "", children }: any) {
   return <div className={`bg-slate-900 text-white ${className}`}>{children}</div>;
 }
 
-export function AccordionItem({ value, children }: { value: string; children: React.ReactNode }) {
+export function AccordionItem({ children }: { value: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen((prev) => !prev);
 
